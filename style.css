@@ -1,0 +1,253 @@
+:root {
+    --verde-escuro: #174b36;
+    --verde-escuro-2: #123b2d;
+    --verde-claro: #dfece5;
+    --verde-suave: #edf5ef;
+    --texto: #24332b;
+    --branco: #ffffff;
+    --cinza: #68756e;
+    --sombra: 0 12px 28px rgba(23, 75, 54, 0.12);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    color: var(--texto);
+    background: linear-gradient(180deg, #f8faf8 0%, var(--verde-suave) 100%);
+}
+
+header {
+    background: linear-gradient(135deg, var(--verde-escuro) 0%, var(--verde-escuro-2) 100%);
+    color: var(--branco);
+    padding: 22px 8%;
+    box-shadow: 0 6px 18px rgba(18, 59, 45, 0.12);
+}
+
+header .container,
+main,
+footer .container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+nav {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: var(--branco);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 999px;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+nav a:hover,
+nav a:focus {
+    background: rgba(255, 255, 255, 0.12);
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+main {
+    padding: 48px 24px;
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: center;
+    margin-bottom: 48px;
+}
+
+.hero img,
+.project-image {
+    width: 100%;
+    border-radius: 16px;
+    display: block;
+}
+
+.hero h2 {
+    font-size: 2.5rem;
+    line-height: 1.15;
+    margin-top: 0;
+    color: #174b36;
+}
+
+.button {
+    display: inline-block;
+    margin-top: 12px;
+    padding: 12px 20px;
+    border-radius: 8px;
+    background: var(--verde-escuro);
+    color: var(--branco);
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.button:hover,
+.button:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 18px rgba(23, 75, 54, 0.18);
+}
+
+section {
+    margin-bottom: 42px;
+}
+
+h2 {
+    color: var(--verde-escuro);
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.card {
+    background: var(--branco);
+    padding: 22px;
+    border-radius: 14px;
+    box-shadow: var(--sombra);
+    border: 1px solid #ebf0eb;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 30px rgba(23, 75, 54, 0.14);
+}
+
+.card h3 {
+    color: var(--verde-escuro);
+}
+
+ul {
+    padding-left: 22px;
+}
+
+form {
+    background: var(--branco);
+    padding: 28px;
+    border-radius: 14px;
+    box-shadow: var(--sombra);
+    border: 1px solid #ebf0eb;
+    max-width: 820px;
+}
+
+fieldset {
+    border: 1px solid #ccd8d0;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 24px;
+}
+
+legend {
+    font-weight: bold;
+    color: #174b36;
+    padding: 0 8px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    max-width: 620px;
+    padding: 11px;
+    margin-top: 5px;
+    border: 1px solid #aebdb4;
+    border-radius: 7px;
+    font: inherit;
+}
+
+input[type="radio"] {
+    width: auto;
+    margin-right: 8px;
+}
+
+button {
+    padding: 12px 18px;
+    margin-right: 8px;
+    border: 0;
+    border-radius: 8px;
+    background: var(--verde-escuro);
+    color: var(--branco);
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+button:hover,
+button:focus {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 18px rgba(23, 75, 54, 0.18);
+}
+
+button[type="reset"] {
+    background: var(--cinza);
+}
+
+.mensagem-sucesso {
+    margin-top: 18px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    background: #eaf7ee;
+    border: 1px solid #9ccaa7;
+    color: var(--verde-escuro);
+    font-weight: bold;
+}
+
+footer {
+    background: #173329;
+    color: white;
+    padding: 28px 8%;
+    margin-top: 30px;
+}
+
+address {
+    font-style: normal;
+}
+
+@media (max-width: 760px) {
+    .hero,
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    main {
+        padding: 32px 18px;
+    }
+}
