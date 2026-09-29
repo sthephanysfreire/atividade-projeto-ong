@@ -11,9 +11,12 @@
     <header>
         <div class="container">
             <h1>Projetos sociais</h1>
-            <nav aria-label="Navegação principal">
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">
+                Menu
+            </button>
+            <nav id="menu-principal" aria-label="Navegação principal">
                 <a href="index.html">Início</a>
-                <a href="projetos.html">Projetos</a>
+                <a href="projetos.html" aria-current="page">Projetos</a>
                 <a href="cadastro.html">Cadastre-se</a>
             </nav>
         </div>
@@ -33,6 +36,7 @@
 
         <section class="cards">
             <article class="card">
+                <span class="badge badge-sucesso">Em andamento</span>
                 <h2>Campanhas de doação</h2>
                 <p>
                     As campanhas arrecadam alimentos e outros itens essenciais
@@ -43,9 +47,13 @@
                     <li>Itens de higiene;</li>
                     <li>Materiais para famílias atendidas.</li>
                 </ul>
+                <div class="card-acoes">
+                    <a class="button" href="cadastro.html">Quero doar</a>
+                </div>
             </article>
 
             <article class="card">
+                <span class="badge badge-info">Inscrições abertas</span>
                 <h2>Voluntariado</h2>
                 <p>
                     Voluntários podem ajudar na organização, divulgação e realização
@@ -56,6 +64,9 @@
                     <li>Participação em ações comunitárias;</li>
                     <li>Apoio na divulgação dos projetos.</li>
                 </ul>
+                <div class="card-acoes">
+                    <a class="button" href="cadastro.html">Quero me voluntariar</a>
+                </div>
             </article>
         </section>
 
@@ -68,6 +79,9 @@
                 Se você deseja contribuir, faça seu cadastro e indique se tem
                 interesse em doação, voluntariado ou nas duas formas de participação.
             </p>
+            <div class="alerta alerta-aviso" role="status">
+                Preencha o formulário com dados válidos para agilizar o contato da equipe.
+            </div>
             <a class="button" href="cadastro.html">Quero participar</a>
         </section>
     </main>
@@ -77,5 +91,7 @@
             <p>&copy; 2026 ONG Esperança. Projeto acadêmico.</p>
         </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

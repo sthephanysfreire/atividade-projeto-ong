@@ -11,8 +11,11 @@
     <header>
         <div class="container">
             <h1>ONG Esperança</h1>
-            <nav aria-label="Navegação principal">
-                <a href="index.html">Início</a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">
+                Menu
+            </button>
+            <nav id="menu-principal" aria-label="Navegação principal">
+                <a href="index.html" aria-current="page">Início</a>
                 <a href="projetos.html">Projetos</a>
                 <a href="cadastro.html">Cadastre-se</a>
             </nav>
@@ -40,24 +43,65 @@
                 Nosso trabalho busca incentivar a solidariedade e ampliar o acesso
                 a recursos básicos por meio de campanhas de doação e ações voluntárias.
             </p>
+            <div class="alerta alerta-info" role="status">
+                Esta é uma simulação acadêmica. Os dados de contato são fictícios.
+            </div>
         </section>
 
         <section class="cards">
             <article class="card">
+                <span class="badge badge-sucesso">Ativo</span>
                 <h3>Doações</h3>
                 <p>
                     Contribuições ajudam na organização de campanhas e na distribuição
                     de alimentos e itens essenciais.
                 </p>
+                <div class="card-acoes">
+                    <a class="button" href="cadastro.html">Quero doar</a>
+                </div>
             </article>
 
             <article class="card">
+                <span class="badge badge-info">Aberto</span>
                 <h3>Voluntariado</h3>
                 <p>
                     Pessoas voluntárias podem participar de ações comunitárias,
                     campanhas e atividades de apoio.
                 </p>
+                <div class="card-acoes">
+                    <a class="button" href="cadastro.html">Quero me voluntariar</a>
+                </div>
             </article>
+        </section>
+
+        <section>
+            <h2>Componentes de feedback</h2>
+            <p>
+                Exemplos visuais de badges, alertas, toast e modal usados na plataforma.
+            </p>
+            <div class="demo-feedback">
+                <div class="demo-badges">
+                    <span class="badge badge-sucesso">Sucesso</span>
+                    <span class="badge badge-aviso">Atenção</span>
+                    <span class="badge badge-erro">Erro</span>
+                    <span class="badge badge-info">Informação</span>
+                </div>
+
+                <div class="alerta alerta-sucesso" role="status">
+                    Cadastro enviado com sucesso.
+                </div>
+                <div class="alerta alerta-aviso" role="status">
+                    Verifique os campos obrigatórios antes de enviar.
+                </div>
+                <div class="alerta alerta-erro" role="alert">
+                    Não foi possível enviar o formulário. Tente novamente.
+                </div>
+
+                <div>
+                    <button type="button" id="btnToast">Mostrar toast</button>
+                    <button type="button" id="btnModal" class="secundario">Abrir modal</button>
+                </div>
+            </div>
         </section>
 
         <section>
@@ -70,10 +114,29 @@
         </section>
     </main>
 
+    <div class="toast-container" aria-live="polite">
+        <div id="toastDemo" class="toast toast-sucesso" hidden>
+            Notificação toast: ação concluída com sucesso.
+        </div>
+    </div>
+
+    <div id="modalDemo" class="modal-overlay" hidden>
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitulo">
+            <h3 id="modalTitulo">Confirmar participação</h3>
+            <p>Deseja continuar para a página de cadastro e apoiar a ONG Esperança?</p>
+            <div class="modal-acoes">
+                <button type="button" id="fecharModal" class="secundario">Cancelar</button>
+                <a class="button" href="cadastro.html">Confirmar</a>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <div class="container">
             <p>&copy; 2026 ONG Esperança. Projeto acadêmico.</p>
         </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>

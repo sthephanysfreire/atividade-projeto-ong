@@ -11,10 +11,13 @@
     <header>
         <div class="container">
             <h1>Cadastro de colaboradores</h1>
-            <nav aria-label="Navegação principal">
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">
+                Menu
+            </button>
+            <nav id="menu-principal" aria-label="Navegação principal">
                 <a href="index.html">Início</a>
                 <a href="projetos.html">Projetos</a>
-                <a href="cadastro.html">Cadastre-se</a>
+                <a href="cadastro.html" aria-current="page">Cadastre-se</a>
             </nav>
         </div>
     </header>
@@ -27,7 +30,11 @@
                 Este formulário faz parte de um projeto acadêmico.
             </p>
 
-            <form id="cadastroForm" action="#" method="post" onsubmit="return validarCadastro(event);">
+            <div id="alertaFormulario" class="alerta alerta-erro" role="alert" hidden>
+                Existem campos inválidos. Corrija-os antes de enviar.
+            </div>
+
+            <form id="cadastroForm" action="#" method="post" novalidate>
                 <fieldset>
                     <legend>Dados pessoais</legend>
 
@@ -131,32 +138,18 @@
         </section>
     </main>
 
-    <script>
-        function validarCadastro(event) {
-            const form = document.getElementById('cadastroForm');
-            const mensagemSucesso = document.getElementById('mensagemSucesso');
-
-            if (!form || !mensagemSucesso) {
-                return false;
-            }
-
-            if (!form.checkValidity()) {
-                form.reportValidity();
-                return false;
-            }
-
-            event.preventDefault();
-            mensagemSucesso.hidden = false;
-            form.reset();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-            return false;
-        }
-    </script>
+    <div class="toast-container" aria-live="polite">
+        <div id="toastCadastro" class="toast toast-sucesso" hidden>
+            Cadastro registrado com sucesso.
+        </div>
+    </div>
 
     <footer>
         <div class="container">
             <p>&copy; 2026 ONG Esperança. Projeto acadêmico.</p>
         </div>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
