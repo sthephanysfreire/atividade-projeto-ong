@@ -1,4 +1,6 @@
 (function () {
+    var STORAGE_KEY = "ongEsperancaCadastros";
+
     function configurarMenu() {
         var botao = document.querySelector(".menu-toggle");
         var menu = document.getElementById("menu-principal");
@@ -58,6 +60,40 @@
         }
     }
 
+    function lerCadastros() {
+        try {
+            var bruto = window.localStorage.getItem(STORAGE_KEY);
+            return bruto ? JSON.parse(bruto) : [];
+        } catch (erro) {
+            return [];
+        }
+    }
+
+    function salvarCadastro(dados) {
+        var lista = lerCadastros();
+        lista.push(dados);
+        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(lista));
+        return lista.length;
+    }
+
+    function coletarDadosFormulario(form) {
+        var interesse = form.querySelector('input[name="interesse"]:checked');
+
+        return {
+            nome: form.nome.value.trim(),
+            email: form.email.value.trim(),
+            nascimento: form.nascimento.value,
+            cpf: form.cpf.value.trim(),
+            telefone: form.telefone.value.trim(),
+            cep: form.cep.value.trim(),
+            endereco: form.endereco.value.trim(),
+            cidade: form.cidade.value.trim(),
+            estado: form.estado.value.trim().toUpperCase(),
+            interesse: interesse ? interesse.value : "",
+            criadoEm: new Date().toISOString()
+        };
+    }
+
     function configurarCadastro() {
         var form = document.getElementById("cadastroForm");
         var mensagemSucesso = document.getElementById("mensagemSucesso");
@@ -82,8 +118,14 @@
                 alertaFormulario.hidden = true;
             }
 
+            var total = salvarCadastro(coletarDadosFormulario(form));
+
             if (mensagemSucesso) {
                 mensagemSucesso.hidden = false;
+                mensagemSucesso.textContent =
+                    "Cadastro enviado com sucesso! Total salvo neste navegador: " +
+                    total +
+                    ".";
             }
 
             mostrarToast("toastCadastro");
